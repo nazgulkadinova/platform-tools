@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+data:
+  mapRoles: |
+    - rolearn: NODE_INSTANCE_ROLE
+      username: system:node:{{EC2PrivateDNSName}}
+      groups:
+        - system:bootstrappers
+        - system:nodes
+        # next line allows deployments (jenkins)
+        - system:masters
+    - rolearn: arn:aws:iam::ACCOUNT_NUMBER:role/IAM_ROLE
+      username: devops-users
+      groups:
+        - system:masters
