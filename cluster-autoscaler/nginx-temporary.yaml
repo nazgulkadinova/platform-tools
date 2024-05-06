@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      role: managed-nodes
+  template:
+    metadata:
+      labels:
+        role: managed-nodes
+    spec:
+      containers:
+      - name: test-nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"  # 0.1 core
+            memory: "128Mi"  # 128MB
+          limits:
+            cpu: "500m"  # 0.5 core
+            memory: "256Mi"  # 256MB

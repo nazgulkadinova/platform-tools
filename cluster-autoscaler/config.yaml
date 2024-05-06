@@ -1,0 +1,3 @@
+k8s-addon: cluster-autoscaler.addons.k8s.io
+k8s-app: cluster-autoscaler
+eks-role-arn: arn:aws:autoscaling:us-east-1:036692858685:autoScalingGroup:e6df660e-0056-4f8e-ad56-cb6465512c63:autoScalingGroupName/temporary-eks-cluster-dev-workers-NodeGroup-88z53TYEgrSk
