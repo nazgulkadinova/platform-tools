@@ -1,0 +1,27 @@
+# This file is read by Makefile
+
+# set default instanceProfile (ondemand, mixed, ondemand-20200610, mixed-20200610)
+instanceProfile = ondemand
+
+# EKS version
+version = 1.28
+
+
+# Network
+# Note: 172.17.0.0/16 should never be used as VPC CIDR because it collides with Docker's default internal CIDR
+VpcBlock = 10.20.0.0/16
+Subnet01Block = 10.20.64.0/18
+Subnet02Block = 10.20.128.0/18
+Subnet03Block = 10.20.192.0/18
+
+# Availability zones
+Subnet01Az = 0
+Subnet02Az = 1
+Subnet03Az = 3
+
+# Instances
+instanceType = t3.medium
+asgMin = 1
+asgMax = 5
+asgDesired = 2
+volumeSize = 8

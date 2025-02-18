@@ -1,0 +1,5 @@
+apiVersion: v2
+name: Grafana Helm Chart
+description: helm chart for deploying Grafana
+type: application
+version: 0.1.0

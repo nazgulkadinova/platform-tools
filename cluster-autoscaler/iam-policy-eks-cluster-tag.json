@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "EnforceEKSClusterTags",
+            "Effect": "Deny",
+            "Action": [
+                "eks:UntagResource"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:RequestTag/k8s.io/cluster-autoscaler/enabled": "true",
+                    "aws:RequestTag/k8s.io/cluster/23c-centos-eks-cluster": "owned"
+                },
+                "Null": {
+                    "aws:RequestTag/k8s.io/cluster-autoscaler/enabled": "false",
+                    "aws:RequestTag/k8s.io/cluster/23c-centos-eks-cluster": "false"
+                }
+            }
+        }
+    ]
+}
